@@ -1,0 +1,54 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+Class ToDoLists{
++load initial scene
+}
+
+Class ToDoListsController
+
+Class ListHandler{
+--Parameters--
+List<ToDoList>
+--Methods--
++createList()
++removeList()
++saveAllLists()
++loadAllLists()
++saveList()
++loadList()
+}
+
+Class ToDoList{
+--Parameters--
+String
+List<ToDoItem>
+--Methods--
++setTitle()
++getTitle()
++createItem()
++removeItem()
++getItems()
++filterItems()
+}
+
+Class ToDoItem{
+--Parameters--
+String description
+String dueDate
+boolean completeness
+--methods--
++setItemDesc()
++setItemDueDate()
++setItemCompleteness()
++getItemDesc()
++getItemDueDate()
++getItemCompleteness()
+}
+
+ToDoListsController ..|> ToDoLists
+ToDoLists -- ListHandler
+ListHandler o- ToDoList
+ToDoList o- ToDoItem
+
+@enduml
